@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Niloo Alavi | Portfolio design draft</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font: 16px/1.5 system-ui, sans-serif;
+      background: #f7f3eb;
+      color: #24221d;
+      --muted: #605b52;
+      --rule: #cec6b8;
+      --accent: #79513d;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; }
+    a { color: inherit; text-underline-offset: .26em; }
+    a:hover { color: var(--accent); }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
+    .wrap { width: min(1120px, calc(100% - 3rem)); margin-inline: auto; }
+    header, footer, .section-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+    }
+    header { padding-block: 1.4rem; border-bottom: 1px solid var(--rule); }
+    header p { margin: 0; font-weight: 650; }
+    nav { display: flex; gap: clamp(.85rem, 3vw, 2rem); }
+    nav a { text-decoration: none; }
+    nav a:hover { text-decoration: underline; }
+    .eyebrow {
+      font: 600 .72rem/1.5 system-ui, sans-serif;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 15rem);
+      align-items: end;
+      gap: 1.5rem 2rem;
+      padding-block: clamp(2.6rem, 8vw, 6rem) clamp(2.8rem, 6vw, 4.5rem);
+    }
+    h1, h2, h3 { font-family: Georgia, serif; font-weight: 400; }
+    h1 {
+      font-size: clamp(2.5rem, 7.8vw, 6.4rem);
+      letter-spacing: -.068em;
+      line-height: .96;
+      margin: .85rem 0 0;
+      text-wrap: balance;
+    }
+    h1 em { color: var(--accent); font-weight: inherit; }
+    .hero-aside { padding-block-end: .25rem; }
+    .hero-aside p { color: var(--muted); margin: 0 0 1.15rem; }
+    .hero-aside a { font-weight: 650; white-space: nowrap; }
+    .section-label { padding-block: .9rem; border-top: 1px solid var(--rule); }
+    .section-label h2 { font: 650 1rem system-ui, sans-serif; margin: 0; }
+    .section-label span { color: var(--muted); font-size: .79rem; }
+    .feature {
+      display: grid;
+      grid-template-columns: 1.25fr 1fr;
+      gap: 1px;
+      border: 1px solid var(--rule);
+      background: var(--rule);
+    }
+    .feature-copy {
+      background: #eee8dd;
+      padding: clamp(1.5rem, 5vw, 3.75rem);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .feature-copy .eyebrow { margin: 0 0 .7rem; }
+    .feature h3 { font-size: clamp(2.2rem, 5vw, 4rem); letter-spacing: -.055em; line-height: 1; margin: 0; }
+    .feature-copy > p:last-child { color: var(--muted); max-width: 32ch; margin: .85rem 0 0; }
+    .study-art {
+      min-height: clamp(15rem, 34vw, 24rem);
+      position: relative;
+      display: grid;
+      place-items: center;
+      padding: 2rem 1rem;
+      isolation: isolate;
+      overflow: hidden;
+      background: linear-gradient(126deg, #c0c6b6, #a5b3a5);
+    }
+    .study-art::before {
+      content: "";
+      position: absolute;
+      width: 82%;
+      aspect-ratio: 1;
+      border: 1px solid #53625260;
+      border-radius: 50%;
+      z-index: -1;
+      transform: translate(-31%, -12%);
+    }
+    .mock {
+      background: #f8f6ee;
+      padding: 1.15rem;
+      border-radius: .55rem;
+      width: min(80%, 19rem);
+      color: #283a32;
+      box-shadow: .4rem 1rem 2.4rem #20332839;
+      transform: rotate(-6deg);
+    }
+    .mock-brand { font-size: .56rem; font-weight: 750; letter-spacing: .16em; }
+    .mock-title { font: clamp(1.1rem, 3vw, 1.9rem)/1.1 Georgia, serif; margin: .7rem 0; }
+    .mock-row { padding: .55rem; margin-top: .35rem; background: #e7ece3; border-radius: .25rem; font-size: .68rem; }
+    .work-list { display: grid; grid-template-columns: 1fr 1fr; margin-top: 1.65rem; }
+    .work-list article { padding: 1rem 1rem 1.2rem 0; border-top: 1px solid var(--rule); }
+    .work-list article + article { border-left: 1px solid var(--rule); padding-left: 1.3rem; }
+    .work-list h3 { font-size: clamp(1.3rem, 3vw, 2rem); margin: .25rem 0; }
+    .work-list p { color: var(--muted); margin: 0; }
+    .about { margin-block: 3rem; }
+    .about > p { font: clamp(1.35rem, 3vw, 2rem)/1.35 Georgia, serif; max-width: 40ch; margin: .5rem 0 0; }
+    footer { border-top: 1px solid var(--rule); padding-block: 1rem; color: var(--muted); font-size: .8rem; }
+    @media (max-width: 680px) {
+      .wrap { width: calc(100% - 2rem); }
+      .hero, .feature { grid-template-columns: 1fr; }
+      .hero-aside { max-width: 31ch; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <p>Niloo Alavi</p>
+      <nav aria-label="Main navigation">
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+      </nav>
+    </header>
+    <main>
+      <section class="hero" aria-labelledby="intro">
+        <div>
+          <div class="eyebrow">Product designer</div>
+          <h1 id="intro">Making complex products feel <em>clear.</em></h1>
+        </div>
+        <div class="hero-aside">
+          <p>I design digital experiences and systems that make it easier for people to find their way.</p>
+          <a href="#work">See selected work <span aria-hidden="true">&darr;</span></a>
+        </div>
+      </section>
+      <section id="work" aria-labelledby="work-heading">
+        <div class="section-label">
+          <h2 id="work-heading">Selected work</h2>
+          <span>01&ndash;03</span>
+        </div>
+        <article class="feature">
+          <div class="study-art" aria-hidden="true">
+            <div class="mock">
+              <div class="mock-brand">HELIO HEALTH</div>
+              <div class="mock-title">Your care, in one place.</div>
+              <div class="mock-row">Upcoming visits</div>
+              <div class="mock-row">Care team</div>
+            </div>
+          </div>
+          <div class="feature-copy">
+            <p class="eyebrow">01 / Healthcare UX</p>
+            <h3>Helio Health</h3>
+            <p>Bringing appointments, billing, and support into one patient portal.</p>
+          </div>
+        </article>
+        <div class="work-list">
+          <article>
+            <span class="eyebrow">02 / Design systems</span>
+            <h3>Northstar AI</h3>
+            <p>A shared interface language for an analytics product.</p>
+          </article>
+          <article>
+            <span class="eyebrow">03 / Ecommerce</span>
+            <h3>Atelier Commerce</h3>
+            <p>Editorial storytelling and a clearer path to checkout.</p>
+          </article>
+        </div>
+      </section>
+      <section class="about" id="about" aria-labelledby="about-heading">
+        <div class="section-label"><h2 id="about-heading">About</h2></div>
+        <p>My work pairs product thinking with an editorial eye: clear hierarchy, considered typography, and systems that leave room for personality.</p>
+      </section>
+    </main>
+    <footer><span>Homepage concept</span><span>Project art is illustrative</span></footer>
+  </div>
+</body>
+</html>
